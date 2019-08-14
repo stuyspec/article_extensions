@@ -1,9 +1,9 @@
 {
   "name": "@stuyspec/article_extensions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module containing React components used to add rich, interactive multimedia content to the Stuyvesant Spectator website and CMS.",
-  "main": ".dist/index.js",
-  "types": ".dist/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
