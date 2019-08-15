@@ -1,3 +1,3 @@
-import { Extension } from './Extension';
+import { Extension, IExtensionProps } from './Extension';
 
-export { Extension };
+export { Extension, IExtensionProps };

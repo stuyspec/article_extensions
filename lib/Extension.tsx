@@ -3,11 +3,9 @@ import * as ReactDOM from 'react-dom';
 
 import { extensions, IExtensionProps } from './extensions';
 
-interface IProps {
+export interface IExtensionProps {
     type: string,
-    props: string,
-    additionalExtensions?: Map<string, React.ComponentType<IExtensionProps>>,
-    root: Element
+    props: any,
 }
 
 const ExtensionHelper: React.FunctionComponent<IProps> = ({type, props, additionalExtensions, ...rest}) => {
@@ -30,10 +28,13 @@ const ExtensionHelper: React.FunctionComponent<IProps> = ({type, props, addition
     }
 }
 
+interface IProps {
+    type: string,
+    props: string,
+    additionalExtensions?: Map<string, React.ComponentType<IExtensionProps>>,
+    root: Element,
+}
 
-type ExtensionType<T = {}> = React.FunctionComponent<IProps & T>;
-
-
-export const Extension: ExtensionType = (props) => {
-    return ReactDOM.createPortal(<ExtensionHelper {...props} />, props.root);
+export function Extension<T = {}>({root, ...rest}: IProps & T)  {
+    return ReactDOM.createPortal(<ExtensionHelper {...rest} />, root);
 }
