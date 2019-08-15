@@ -4,7 +4,6 @@ import * as ReactDOM from 'react-dom';
 import { extensions, IExtensionProps } from './extensions';
 
 export interface IExtensionProps {
-    type: string,
     props: any,
 }
 
