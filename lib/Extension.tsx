@@ -28,13 +28,13 @@ const ExtensionHelper: React.FunctionComponent<IProps> = ({type, props, addition
     }
 }
 
-interface IProps {
+type IProps<T> =  {
     type: string,
     props: string,
-    additionalExtensions?: Map<string, React.ComponentType<IExtensionProps>>,
+    additionalExtensions?: Map<string, React.ComponentType<IExtensionProps & T>>,
     root: Element,
-}
+} & T;
 
-export function Extension<T = {}>({root, ...rest}: IProps & T)  {
+export function Extension<T = {}>({root, ...rest}: IProps<T>)  {
     return ReactDOM.createPortal(<ExtensionHelper {...rest} />, root);
 }
