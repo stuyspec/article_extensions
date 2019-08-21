@@ -31,7 +31,7 @@ const useStyles = createUseStyles({
 
 const colors = ['#4487F0', '#C5594F', '#F7B028', '#1D9C59', '#FB6C20', '#4BBBC6'];
 
-export const LineChartExtension: React.FunctionComponent<IExtensionProps> = ({ props }) => {
+export const LineChartExtension: React.FC<IExtensionProps> = ({ props }: IExtensionProps) => {
     const styles = useStyles();
 
     const parsedProps = props as IParsedProps;
