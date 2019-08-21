@@ -7,6 +7,6 @@ export interface IExtensionProps {
     props: any,
 }
 
-export const extensions: Map<string, React.ComponentType<IExtensionProps>> = new Map([
+export const extensions: Array<[string, React.ComponentType<IExtensionProps>]> = [
     ["LineChartExtension", LineChartExtension]
-]);
+];
