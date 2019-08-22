@@ -4,7 +4,7 @@ import { IExtensionProps } from './extensions';
 import { Line } from 'react-chartjs-2';
 import { createUseStyles } from 'react-jss';
 
-interface IParsedProps {
+export interface IProps {
     //mandatory
     data?: {
         labels?: string[],
@@ -34,7 +34,7 @@ const colors = ['#4487F0', '#C5594F', '#F7B028', '#1D9C59', '#FB6C20', '#4BBBC6'
 export const LineChartExtension: React.FC<IExtensionProps> = ({ props }: IExtensionProps) => {
     const styles = useStyles();
 
-    const parsedProps = props as IParsedProps;
+    const parsedProps = props as IProps;
 
     if (parsedProps.data && parsedProps.data.labels && parsedProps.data.datasets) {
         const options = {
