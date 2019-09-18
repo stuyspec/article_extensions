@@ -10,17 +10,20 @@ export interface IProps {
         labels?: string[],
         datasets?: {
             label: string,
-            data: (number | null)[]
+            data: number[]
         }[]
     },
     chartOptions?: {
         showArea?: boolean,
-        smoothCurves?: boolean
+        smoothCurves?: boolean,
     },
     title?: string,
     caption?: string,
     xAxisLabel?: string,
-    yAxisLabel?: string
+    yAxisLabel?: string,
+    yAxisMin?: number,
+    yAxisMax?: number,
+    yAxisStep?: number
 }
 
 const useStyles = createUseStyles({
@@ -39,6 +42,41 @@ export const LineChartExtension: React.FC<IExtensionProps> = ({ props }: IExtens
     if (parsedProps.data && parsedProps.data.labels && parsedProps.data.datasets) {
         const options = {
             responsive: true,
+            title: {
+                display: !!parsedProps.title,
+                text: parsedProps.title,
+                fontSize: 24,
+                fontFamily: "Minion Pro"
+            },
+            elements: {
+                line: {
+                    tension: (parsedProps.chartOptions && parsedProps.chartOptions.smoothCurves) ? 0.4 : 0
+                }
+            },
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: !!parsedProps.xAxisLabel,
+                        labelString: parsedProps.xAxisLabel,
+                        fontSize: 16,
+                        fontFamily: "Minion Pro"
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: !!parsedProps.yAxisLabel,
+                        labelString: parsedProps.yAxisLabel,
+                        fontSize: 16,
+                        fontFamily: "Minion Pro",
+                    },
+                    ticks: {
+                        min: parsedProps.yAxisMin,
+                        max: parsedProps.yAxisMax,
+                        stepSize: parsedProps.yAxisStep
+                    }
+                }
+                ]
+            }
         }
 
         parsedProps.data.datasets.forEach((currentValue: any, index: number) => {
