@@ -7,5 +7,11 @@ export const colors = [
 
 //allow unlimited number of colored lines/bars in line and bar charts
 export function colorByIndex(index: number): string {
-    return colors[index % colorByIndex.length]
+    return colors[index % colors.length]
 }
+
+export const chartContainerStyles = {
+    width: "100%",
+    minHeight: '400px',
+    height: '30vh',
+};
