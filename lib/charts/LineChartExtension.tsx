@@ -1,11 +1,14 @@
 import * as React from 'react';
 
 import { IExtensionProps } from '../extensions';
-import { colorByIndex } from './helpers';
+import { colorByIndex, chartContainerStyles } from './helpers';
 import { Line } from 'react-chartjs-2';
 import { createUseStyles } from 'react-jss';
 
 export interface IProps {
+    responsive: true,
+    maintainAspectRatio: false,
+
     //mandatory
     data?: {
         labels?: string[],
@@ -28,9 +31,7 @@ export interface IProps {
 }
 
 const useStyles = createUseStyles({
-    ChartContainer: {
-        width: "100%",
-    }
+    ChartContainer: chartContainerStyles
 })
 
 export const LineChartExtension: React.FC<IExtensionProps> = ({ props }: IExtensionProps) => {

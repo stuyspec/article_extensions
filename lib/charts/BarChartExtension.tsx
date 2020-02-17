@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { IExtensionProps } from '../extensions';
-import { colorByIndex } from './helpers';
+import { colorByIndex, chartContainerStyles } from './helpers';
 import { Bar } from 'react-chartjs-2';
 import { createUseStyles } from 'react-jss';
 
@@ -24,9 +24,7 @@ export interface IProps {
 }
 
 const useStyles = createUseStyles({
-    ChartContainer: {
-        width: "100%",
-    }
+    ChartContainer: chartContainerStyles
 })
 
 export const BarChartExtension: React.FC<IExtensionProps> = ({ props }: IExtensionProps) => {
@@ -37,6 +35,7 @@ export const BarChartExtension: React.FC<IExtensionProps> = ({ props }: IExtensi
     if (parsedProps.data && parsedProps.data.labels && parsedProps.data.datasets) {
         const options = {
             responsive: true,
+            maintainAspectRatio: false,
             title: {
                 display: !!parsedProps.title,
                 text: parsedProps.title,

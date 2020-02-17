@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { IExtensionProps } from '../extensions';
-import { colors } from './helpers';
+import { colors, chartContainerStyles } from './helpers';
 
 import { Pie } from 'react-chartjs-2';
 import { createUseStyles } from 'react-jss';
@@ -17,11 +17,7 @@ export interface IProps {
 }
 
 const useStyles = createUseStyles({
-    ChartContainer: {
-        width: "100%",
-        'min-height': '400px',
-        height: '30vh',
-    }
+    ChartContainer: chartContainerStyles
 })
 
 export const PieChartExtension: React.FC<IExtensionProps> = ({props}: IExtensionProps) => {
