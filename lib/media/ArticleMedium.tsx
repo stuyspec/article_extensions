@@ -15,6 +15,7 @@ const mediumStyles = {
     },
     imgContainer: {
         position: "relative",
+        background: "none",
         "& img": {
             width: "100%",
         },
